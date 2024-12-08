@@ -1,0 +1,53 @@
+// Programmer: Mocnangan Grant
+// Date: 10/8/2024
+// Lab challenge #5
+package lab.pkg5;
+import java.util.Scanner;
+public class Lab5 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("1. Burger    -PHP 100");
+        System.out.println("2. Fries     -PHP 50");
+        System.out.println("3. Soda      -PHP 30");
+        System.out.println("4. Ice Cream -PHP 45");
+        System.out.println("5. Exit");
+        
+        System.out.print("Enter the menu number of your choice: ");
+        int choice = scanner.nextInt();
+        
+        if (choice == 5){
+            System.out.println("Thank you for visiting us, come again next time");
+            return;
+        }
+        
+        System.out.print("Enter the quantity: ");
+        double quantity = scanner.nextDouble();
+        
+        double totalPrice = 0.0;
+        
+        switch (choice){
+            case 1:
+                totalPrice = 100 * quantity;
+                System.out.println("You ordered a Burger.");
+                break;
+            case 2:
+                totalPrice = 50 * quantity;
+                System.out.println("You ordered Fries.");
+                break;
+            case 3:
+                totalPrice = 30 * quantity;
+                System.out.println("You ordered a Soda.");
+                break;
+            case 4:
+                totalPrice = 45 * quantity;
+                System.out.println("You ordered an Ice cream.");
+                break;
+            default:
+            System.out.println("Please enter a valid selection.");   
+            return;
+        }
+        System.out.println("Total amout: " + (int)(totalPrice));
+        
+    }
+    
+}
