@@ -1,0 +1,23 @@
+//Grant Mocnangan
+//CITCS 1N-A
+//Final Challenge # 1
+public class RetailStoreInventoryManagement {
+    public static void main(String[] args) {
+        // Array to store stock levels
+        int[] quantities = {10, 6, 9, 15, 13, 20, 8, 18, 5, 9};
+        
+        // Array to store prices 
+        double[] prices = {15.4, 25.0, 8.75, 29.0, 13.5, 7.25, 20.0, 5.5, 50.0, 10.0};
+        
+        // Variable for the total value of the stock
+        double totalValue = 0;
+        
+        // Loop to calculate the total value
+        for (int i = 0; i < quantities.length; i++) {
+            totalValue += quantities[i] * prices[i];
+        }
+        
+        // Display the total value of all items
+        System.out.println("The total value of all items in stock is: P" + totalValue);
+    }
+}
