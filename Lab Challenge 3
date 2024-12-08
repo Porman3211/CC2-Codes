@@ -1,0 +1,38 @@
+// Programmer: Mocnangan Grant
+// Date: 9/6/2024
+// Lab challenge #3
+package groceryshoppingcalculator;
+import java.util.Scanner;
+public class GroceryShoppingCalculator {
+  public static void main(String[] args){
+    Scanner scanner = new Scanner(System.in);
+    double sum1, sum2, sum3;
+    int quantity1, quantity2, quantity3;
+    
+    System.out.print("Enter the price of item 1: ");
+    sum1 = scanner.nextDouble();
+    System.out.print("Enter the quantity of item 1: ");
+    quantity1 = scanner.nextInt();
+    System.out.print("Enter the price of item 2: ");
+    sum2 = scanner.nextDouble();
+    System.out.print("Enter the quantity of item 2: ");
+    quantity2 = scanner.nextInt();
+    System.out.print("Enter the price of item 3: ");
+    sum3 = scanner.nextDouble();
+    System.out.print("Enter the quantity of item 3: ");
+    quantity3 = scanner.nextInt();
+    double subtotal =  (sum1 * quantity1) + (sum2 * quantity2) + (sum3 * quantity3);
+    double discount = subtotal * 0.05;
+    double discountedsubtotal = subtotal - discount;
+    double salesTax = discountedsubtotal * 0.12;
+    double finalTotal = discountedsubtotal + salesTax;
+        
+    // Output the results
+    System.out.print("Subtotal: PHP" + subtotal + "0" + "\n");
+    System.out.print("Discount: PHP" + discount + "0" + "\n");
+    System.out.print("SalesTax: PHP" + salesTax + "0" + "\n");
+    System.out.println("Final Total: PHP" + finalTotal + "0");
+    
+  }
+  
+}
