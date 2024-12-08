@@ -1,0 +1,15 @@
+// Programmer: Mocnangan Grant
+// Date: 9/6/2024
+// Lab challenge #2
+package calculation;
+public class Calculation {
+    public static void main(String[] args) { 
+        
+        double length = 10, width = 5,  area = length * width,  perimeter = 2 * (length + width);
+        
+        //output
+        System.out.println("Length= " + length + " meters");
+        System.out.println("Width= " + width + " meters");
+        System.out.println("Area= " + area + " square meters");
+        System.out.println("Perimeter= " + perimeter + " meters");
+ }
