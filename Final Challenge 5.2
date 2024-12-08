@@ -1,0 +1,51 @@
+//Mocnangan Grant
+//CITCS 1N-A
+//Final Challenge # 5.2
+import javax.swing.*;
+class InvalidQuantityException extends Exception {
+    public InvalidQuantityException(String message) {
+        super(message);
+    }
+}
+class ShoppingCart {
+    private int availableStock;
+    public ShoppingCart(int availableStock) {
+        this.availableStock = availableStock;
+    }
+    // Method to add product to the cart
+    public void addProduct(int quantity) {
+        try {
+            if (quantity < 0) {
+                throw new InvalidQuantityException("Error: Quantity cannot be negative.");
+            }
+            if (quantity > availableStock) {
+                throw new InvalidQuantityException("Error: Not enough stock available.");
+            }
+            availableStock -= quantity;
+            JOptionPane.showMessageDialog(null, "Added " + quantity + " item(s) to the cart.\nRemaining stock: " + availableStock, "Success", JOptionPane.INFORMATION_MESSAGE);
+        } catch (InvalidQuantityException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public int getAvailableStock() {
+        return availableStock;
+    }
+}
+public class OnlineShoppingCartJOption {
+    public static void main(String[] args) {
+        ShoppingCart cart = new ShoppingCart(10); // Initial stock of 10 items
+        // Get the quantity input 
+        String input = JOptionPane.showInputDialog(null, "Enter quantity to add to the cart:", "Shopping Cart", JOptionPane.QUESTION_MESSAGE);
+        try {
+            // Convert the input to an integer
+            int quantity = Integer.parseInt(input);
+            // Try to add the quantity to the cart
+            cart.addProduct(quantity);
+        } catch (NumberFormatException e) {
+            // Handle invalid input
+            JOptionPane.showMessageDialog(null, "Invalid input. Please enter a valid number.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        // Show the final stock 
+        JOptionPane.showMessageDialog(null, "Final available stock: " + cart.getAvailableStock(), "Stock Info", JOptionPane.INFORMATION_MESSAGE);
+    }
+}
