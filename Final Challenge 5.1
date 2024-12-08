@@ -1,0 +1,46 @@
+//Grant Mocnangan
+//CITCS 1N-A
+//Final Challenge # 5.1
+import javax.swing.*;
+class InsufficientFundsException extends Exception {
+    public InsufficientFundsException(String message) {
+        super(message);
+    }
+}
+class BankAccount {
+    private double balance;
+    public BankAccount(double initialBalance) {
+        this.balance = initialBalance;
+    }
+    // Method to withdraw money
+    public void withdraw(double amount) {
+        try {
+            if (amount > balance) {
+                throw new InsufficientFundsException("Error: Withdrawal amount exceeds balance.");
+            }
+            balance -= amount;
+            JOptionPane.showMessageDialog(null, "Withdrawal successful! Remaining balance: P" + balance, "Success", JOptionPane.INFORMATION_MESSAGE);
+        } catch (InsufficientFundsException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public double getBalance() {
+        return balance;
+    }
+}
+public class BankingSystemJOption {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount(500.00); // Initial balance of P500
+        // Create input dialog to get the amount from the user
+        String input = JOptionPane.showInputDialog(null, "Enter withdrawal amount:", "Banking System", JOptionPane.QUESTION_MESSAGE);
+        try {
+            // Convert input string to a double value
+            double amount = Double.parseDouble(input);
+            // Try to withdraw the amount
+            account.withdraw(amount);
+        } catch (NumberFormatException e) {
+            // Handle non-numeric input
+            JOptionPane.showMessageDialog(null, "Invalid input. Please enter a valid number.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+}
