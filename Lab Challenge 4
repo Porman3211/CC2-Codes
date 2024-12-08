@@ -1,0 +1,31 @@
+// Programmer: Mocnangan Grant
+// Date: 9/6/2024
+// Lab challenge #4
+package discountcalculator;
+import java.util.Scanner;
+public class DiscountCalculator {
+    
+    public static void main(String[] args) {
+         Scanner scanner = new Scanner(System.in);
+         System.out.print("Enter the total purchase amount: PHP ");
+         double total = scanner.nextDouble();
+         
+         double discount;
+         if (total <=1000) {
+            discount= 0;
+           
+        } else if (total >= 1000 && total <= 5000) {
+            discount = 0.05;
+           
+        } else if (total >= 5001 && total <= 10000) {
+            discount = 0.10;
+           
+        } else {
+            discount = 0.15;
+        }
+        double discountedtotal = total- (total * discount);
+        
+        System.out.println("Discount applied " + (int)(discount * 100) + "%");
+        System.out.println("Final price after discount: PHP " + (int) discountedtotal);
+        }
+    }
